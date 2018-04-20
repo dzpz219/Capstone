@@ -1,0 +1,94 @@
+﻿@model StackedDeck.ViewModels.MessageViewModel
+
+@{
+    ViewBag.Title = "Messages";
+}
+
+<div class="container margin-top-sm">
+    <h2>Messages</h2>
+    <hr />
+    <div class="panel with-nav-tabs panel-default text-black" id="MessagePanel">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li class="active" id="Conversations"><a href="#ConversationTab" data-toggle="tab">Conversations</a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="ConversationTab">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <div class="col-xs-8">
+                            @using (Ajax.BeginForm("Search", "Message", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "ConversationTable" }, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                <input type="hidden" name="mail" value="inbox" />
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="search" placeholder="Search Conversations...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-xs-4">
+                            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#NewMessageModal" data-whatever=""><i class="fa fa-pencil fa-lg"></i></button>
+                        </div>
+                    </div>
+                    <div id="ConversationTable">
+                        <table class="table table-bordered table-hover text-left">
+                            <thead>
+                                <tr>
+                                    <th>Conversation With</th>
+                                    <th class="col-xs-1 text-right">Replies</th>
+                                </tr>
+                            </thead>
+                            <tbody data-link="row" class="rowlink">
+                                @foreach (var m in Model.Messages)
+                                {
+                                    <tr>
+                                        <td>@m.Sender@Ajax.ActionLink(" ", "UserConversation", "Message", new { Sender = @m.Sender}, new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "MessagePanel" })</td>
+                                        <td class="col-xs-1 text-right">@m.Replies</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav>
+                        <ul class="pagination margin-top-none margin-bottom-none" id="message-pagination"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="NewMessageModal" tabindex="-1" role="dialog" aria-labelledby="NewMessageModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content text-black">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <h4 class="modal-title" id="NewMessageModalLabel">New message</h4>
+                </div>
+                @using (Ajax.BeginForm("NewMessage", "Message", new AjaxOptions { HttpMethod = "Post", OnComplete = "location.reload()" }, new { @class = "", role = "form", @id = "NewMessageForm" }))
+                {
+                    <div class="modal-body text-left">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">To:</label>
+                            <input type="text" name="recipient" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Message:</label>
+                            <input class="form-control" name="message" id="message" style="padding-bottom: 100px; padding-top: 15px;"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@Styles.Render("~/Content/panels.css")
+@Styles.Render("~/Content/bubbles.css")
+@Scripts.Render("~/Scripts/messages.js")
+@Scripts.Render("~/Scripts/jasny-bootstrap.min.js")
+@Scripts.Render("~/Scripts/jquery.twbsPagination.min.js")

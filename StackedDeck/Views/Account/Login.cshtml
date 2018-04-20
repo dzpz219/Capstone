@@ -1,0 +1,48 @@
+﻿@model StackedDeck.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<div class="container v-align-lg">
+    <section id="loginForm">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-xs-12 text-center margin-bottom-xs">
+                <img src="~/imgs/logo.png" class="img-circle" width="230px">
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12 text-center">
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <input type="text" class="form-control" name="Username" id="userName" placeholder="&#xf007;">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <input type="password" class="form-control" name="Password" id="password" placeholder="&#xf023;">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <input type="submit" value="Login" class="btn btn-success pull-right" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword", "Account", new { @class = "pull-left" })
+                    @Html.ActionLink("Not a Member?", "Register", "Account", new { @class = "pull-right" })
+                </div>
+            </div>
+        }
+    </section>
+</div>
+<div class="footer-container">
+    <div class="footer">
+        <p>Stacked Deck, by <span class="text-muted">Danny Zhang</span>.</p>
+    </div>
+</div>
+@Styles.Render("~/Content/welcome.css")
+@Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")

@@ -1,0 +1,19 @@
+﻿@model StackedDeck.ViewModels.MessageViewModel
+
+<table class="table table-bordered table-hover text-left">
+    <thead>
+        <tr>
+            <th>Conversation With</th>
+            <th class="col-xs-1 text-right">Replies</th>
+        </tr>
+    </thead>
+    <tbody data-link="row" class="rowlink">
+        @foreach (var m in Model.Messages)
+        {
+            <tr>
+                <td>@m.Sender@Ajax.ActionLink(" ", "UserConversation", "Message", new { Sender = @m.Sender }, new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "MessagePanel" })</td>
+                <td class="col-xs-1 text-right">@m.Replies</td>
+            </tr>
+        }
+    </tbody>
+</table>

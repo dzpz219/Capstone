@@ -1,0 +1,25 @@
+﻿@model StackedDeck.ViewModels.CardViewModel
+
+<div id="DealerHand" class="col-xs-12 margin-bottom-sm">
+    @foreach (var Card in Model.DealerHand)
+    {
+        <img class="card" src="/imgs/cards/@Card.Image" alt="@Card.Value"/>
+    }
+</div>
+<div id="Player">
+    <div id="PlayerHand" class="col-xs-12 margin-bottom-sm">
+        <div>Hand: @ViewBag.Hand</div>
+        @foreach (var Card in Model.PlayerHand)
+        {
+            <img class="card" src="/imgs/cards/@Card.Image" alt="@Card.Value" />
+        }
+    </div>
+    <div class="col-xs-12" id="PlayOptions">
+        @if (ViewBag.Ace)
+        {
+            @Ajax.ActionLink("Change Ace", "Ace", "Game", new { Soft = ViewBag.Soft }, new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Player" }, new { @class = "btn btn-success" })
+        }
+        @Ajax.ActionLink("Hit", "Hit", "Game", new { Soft = ViewBag.Soft }, new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Player", OnComplete = "hitresult" }, new { @class = "btn btn-success" })
+        @Ajax.ActionLink("Stand", "Stand", "Game", new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "DealerHand", OnComplete = "result" }, new { @class = "btn btn-success" })
+    </div>
+</div>

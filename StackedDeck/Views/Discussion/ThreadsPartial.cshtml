@@ -1,0 +1,26 @@
+﻿@model StackedDeck.ViewModels.DiscussionViewModel
+<!--Reload a list of threads-->
+<table class="table table-bordered table-hover text-black text-left">
+    <thead>
+        <tr>
+            <th class="col-xs-2">Started By</th>
+            <th class="col-xs-7">Topic</th>
+            <th class="col-xs-1 text-right">Replies</th>
+            <th class="col-xs-2 text-right">Post Date</th>
+        </tr>
+    </thead>
+    <tbody data-link="row" class="rowlink">
+        @foreach (var t in Model.Threads)
+        {
+            <tr>
+                <td class="col-xs-2">@t.Author</td>
+                <td class="col-xs-7">
+                    @t.Topic@Html.ActionLink(" ", "Posts", "Discussion", new { ThreadId = @t.Id, Topic = @t.Topic, Author = @t.Author }, null)
+                </td>
+                <td class="col-xs-1 text-right">@t.PostCount</td>
+                <td class="col-xs-2 text-right">@t.PostDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

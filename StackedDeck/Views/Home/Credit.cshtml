@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Credit";
+}
+
+<div class="container margin-top-sm">
+    <h2>Credits</h2>
+    <h3>Current Amount: <span class="text-success">@ViewBag.Credits</span></h3>
+    <hr />
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-2 col-xs-6">
+            <div>
+                <img class="col-xs-12" src="~/imgs/coins.png" />
+                <div class="col-xs-12">@Ajax.ActionLink("$5,000", "CreditRequest", "Home", new { Amount = "5000" }, new AjaxOptions { HttpMethod = "Post", OnComplete = "location.reload()" }, new { @class = "btn btn-success" })</div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-xs-6">
+            <div>
+                <img class="col-xs-12" src="~/imgs/coins.png" />
+                <div class="col-xs-12">@Ajax.ActionLink("$10,000", "CreditRequest", "Home", new { Amount = "10000" }, new AjaxOptions { HttpMethod = "Post", OnComplete = "location.reload()" }, new { @class = "btn btn-success" })</div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-xs-6">
+            <div>
+                <img class="col-xs-12" src="~/imgs/coins.png" />
+                <div class="col-xs-12">@Ajax.ActionLink("$15,000", "CreditRequest", "Home", new { Amount = "15000" }, new AjaxOptions { HttpMethod = "Post", OnComplete = "location.reload()" }, new { @class = "btn btn-success" })</div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-xs-6">
+            <div>
+                <img class="col-xs-12" src="~/imgs/coins.png" />
+                <div class="col-xs-12">@Ajax.ActionLink("$25,000", "CreditRequest", "Home", new { Amount = "25000" }, new AjaxOptions { HttpMethod = "Post", OnComplete = "location.reload()" }, new { @class = "btn btn-success" })</div>
+            </div>
+        </div>
+    </div>
+</div>

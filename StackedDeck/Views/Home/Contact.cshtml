@@ -1,0 +1,71 @@
+﻿@model StackedDeck.ViewModels.ContactViewModel
+@{
+    ViewBag.Title = "Contact";
+}
+
+@section Scripts {
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTRpw9hOoqdXsTSj8dOlOLuIUU3ZuUVmg&callback=initMap"></script>
+<script src="~/Scripts/contact.js"></script>
+}
+
+<div class="container margin-top-sm">
+    <h2 class="text-center">CONTACT US</h2>
+    <hr>
+    <div class="row margin-top-sm">
+        <div class="col-sm-6">
+            @using (Html.BeginForm("ContactAdmin", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <input type="hidden" value="admin" name="recipient" />
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-3">Name:</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="control-label col-sm-3">Phone:</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="control-label col-sm-3">E-Mail:</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comments" class="control-label col-sm-3">Message:</label>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        @Html.TextBoxFor(m => m.Message, new { @class = "form-control", @style = "padding-bottom: 254px; padding-top: 15px;" })
+                        @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <input type="submit" class="btn btn-primary btn-block" value="Send Message" />
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-sm-5">
+            <div id="map" style="height: 508px"></div>
+        </div>
+    </div>
+    <h1 class="text-center margin-bottom-sm">
+        <i class="fa fa-twitter">&nbsp;</i>
+        <i class="fa fa-facebook-official">&nbsp;</i>
+        <i class="fa fa-instagram">&nbsp;</i>
+        <i class="fa fa-linkedin-square">&nbsp;</i>
+    </h1>
+</div>
+<div class="footer-container">
+    <div class="footer">
+        <p>Stacked Deck, by <span class="text-muted">Danny Zhang</span>.</p>
+    </div>
+</div>

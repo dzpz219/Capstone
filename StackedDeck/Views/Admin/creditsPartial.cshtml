@@ -1,0 +1,30 @@
+﻿@model StackedDeck.ViewModels.AdminData
+<table class="table table-bordered table-hover text-left">
+    <thead>
+        <tr>
+            <th><i class="fa fa-user fa-lg"></i></th>
+            <th class="col-xs-1 text-right">Amount</th>
+            <th class="col-xs-2 text-right">Request Date</th>
+            <th class="col-xs-1 text-right">Approved</th>
+        </tr>
+    </thead>
+    <tbody data-link="row" class="rowlink">
+        @foreach (var r in Model.Requests)
+        {
+            <tr>
+                <td>@r.Username</td>
+                <td class="col-xs-1 text-right">@r.Amount</td>
+                <td class="col-xs-2 text-right">@r.RequestDate</td>
+                <td class="col-xs-1 text-right">
+                    @if (@r.Approved)
+                    {<i class="fa fa-check fa-lg text-success"></i>}
+                    else
+                    { 
+                        <i class="fa fa-ban fa-lg text-danger"></i>
+                        @Ajax.ActionLink(" ", "ApproveCredit", "Admin", new { id = @r.Id, username = @r.Username, amount = @r.Amount }, new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "creditsPartial" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

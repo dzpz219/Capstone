@@ -1,0 +1,103 @@
+﻿@model StackedDeck.ViewModels.DiscussionViewModel
+@{
+    ViewBag.Title = "Discussions";
+}
+<div class="container margin-top-sm">
+    <h2>@ViewBag.Title</h2>
+    <hr class="style15" />
+    <!-- Modal -->
+    <div class="modal fade text-black" id="NewThreadModal" tabindex="-1" role="dialog" aria-labelledby="NewThreadModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <h4 class="modal-title" id="NewThreadModalLabel">New Discussion</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Ajax.BeginForm("NewThread", "Discussion", new AjaxOptions { HttpMethod = "Post", OnSuccess = "clearThreadModal" }, new { @class = "form-horizontal", role = "form", @id = "NewThreadForm" }))
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Thread.Topic, new { @class = "col-xs-1 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Thread.Topic, new { @class = "form-control", @id = "ThreadTopicTextBox", maxlength = "50", required = "required" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                @Html.TextBoxFor(m => m.Thread.Content, new { @class = "form-control", @id = "ThreadContentTextArea", @style = "padding-bottom: 500px; padding-top: 15px;" })
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Post Thread" id="NewThreadButton" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="panel with-nav-tabs panel-default text-black">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#" data-toggle="tab">Threads</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div class="tab-content" >
+                    <div class="tab-pane fade in active">
+                        <div class="row" style="margin-bottom: 10px;">
+                            <div class="col-xs-8">
+                                @using (Ajax.BeginForm("SearchThreads", "Discussion", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "ThreadsTable", OnSuccess = "removePagination" }, new { @class = "form-horizontal", role = "form", @id = "ThreadsSearchForm" }))
+                                {
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="search" id="search" placeholder="Search Threads...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#NewThreadModal"><i class="fa fa-pencil fa-lg"></i></button>
+                            </div>
+                        </div>
+                        <div id="ThreadsTable">
+                            <table class="table table-bordered table-hover text-black text-left">
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-2">Started By</th>
+                                        <th class="col-xs-7">Topic</th>
+                                        <th class="col-xs-1 text-right">Replies</th>
+                                        <th class="col-xs-2 text-right">Post Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-link="row" class="rowlink">
+                                    @foreach (var t in Model.Threads)
+                                    {
+                                        <tr>
+                                            <td class="col-xs-2">@t.Author</td>
+                                            <td class="col-xs-7">
+                                                @t.Topic@Html.ActionLink(" ", "Posts", "Discussion", new { ThreadId = @t.Id, Topic = @t.Topic, Author = @t.Author }, null)
+                                            </td>
+                                            <td class="col-xs-1 text-right">@t.PostCount</td>
+                                            <td class="col-xs-2 text-right">@t.PostDate</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="pagination margin-top-none margin-bottom-none" id="threads-pagination"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Styles.Render("~/Content/panels.css")
+@Scripts.Render("~/Scripts/discussion.js")
+@Scripts.Render("~/Scripts/jasny-bootstrap.min.js")
+@Scripts.Render("~/Scripts/jquery.twbsPagination.min.js")

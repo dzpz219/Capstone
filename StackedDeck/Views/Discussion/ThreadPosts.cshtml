@@ -1,0 +1,104 @@
+﻿@model StackedDeck.ViewModels.DiscussionViewModel
+
+<!--Load a list of posts in a thread-->
+
+<div class="container margin-top-sm">
+    <h2>Discussions</h2>
+    <hr />
+    <div class="panel with-nav-tabs panel-default text-black">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li>
+                    @Html.ActionLink("Threads", "Discussion", "Discussion")
+                    <input type="hidden" id="MaxPages" value="@ViewBag.MaxPosts" />
+                    <input type="hidden" id="Author" value="@ViewBag.Author" />
+                </li>
+                <li class="active"><a href="#" data-toggle="tab" id="Topic">@ViewBag.Title</a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade in active">
+                    <div id="PostsPartial">
+                        @foreach (var p in Model.Posts)
+                        {
+                            <div class="bs-callout bs-callout-primary padding-bottom-none">
+                                <div class="well well-sm text-left">
+                                    <div class="media">
+                                        <div class="media-left padding-left-none">
+                                            <div class="thumbnail margin-bottom-none">
+                                                <img src="@p.Avatar" alt="@p.Username">
+                                            </div>
+                                        </div>
+                                        <div class="media-body text-left">
+                                            <div id="PostContent">@p.Content</div>
+                                        </div>
+                                    </div>
+                                    <div class="row margin-top-xs">
+                                        <div class="col-sm-2 text-center">@p.Username</div>
+                                        <div class="col-sm-10 text-right">@p.PostDate</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 text-right">@Ajax.ActionLink("Report Post", "ReportPost", "Discussion", new { PostId = @p.Id }, new AjaxOptions { HttpMethod = "Post", OnSuccess = "location.reload()" }, new { @class = "text-black" })</div>
+                                    </div>
+                                    @if (@ViewBag.Delete || User.Identity.Name.ToLowerInvariant() == @p.Username)
+                                    {
+                                        <div class="row">
+                                            <div class="col-xs-12 text-right">@Ajax.ActionLink("Delete Post", "DeletePost", "Discussion", new { PostId = @p.Id }, new AjaxOptions { HttpMethod = "Post", OnSuccess = "location.reload()" }, new { @class = "text-danger" })</div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer padding-bottom-sm">
+            @using (Ajax.BeginForm("NewPost", "Discussion", new AjaxOptions { HttpMethod = "Post", OnSuccess = "location.reload()" }, new { @class = "form-horizontal text-right", @id = "NewPostForm" }))
+            {
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input name="Content" class="form-control" style="padding-bottom: 100px; padding-top: 15px;" id="NewPostContent" required="required"/>
+                    </div>
+                </div>
+                <input type="hidden" name="ThreadId" value="@ViewBag.ThreadId" />
+                <input type="hidden" name="Author" value="@User.Identity.Name" />
+                <input type="submit" class="btn btn-primary pull-right" value="New Post" id="NewPostButton" />
+            }
+            @if (@ViewBag.Delete)
+            {
+                <button type="button" class="btn btn-danger pull-left" data-toggle="modal" data-target="#DeleteThreadModal">Delete Thread</button>
+            }
+            <nav>
+                <ul class="pagination margin-top-none margin-bottom-none" id="posts-pagination"></ul>
+            </nav>
+            <input type="hidden" name="ThreadId" id="ThreadId" value="@ViewBag.ThreadId" />
+        </div>
+    </div>
+    <!-- Modal -->
+    @if (@ViewBag.Delete)
+    { 
+        <div class="modal fade text-black" id="DeleteThreadModal" tabindex="-1" role="dialog" aria-labelledby="DeleteThreadModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                        <h4 class="modal-title" id="DeleteThreadModalLabel">Delete Thread?</h4>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("DeleteThread", "Discussion", FormMethod.Post, new { id = "DeleteForm" }))
+                        {
+                        <input type="hidden" name="ThreadId" id="ThreadId" value="@ViewBag.ThreadId" />
+                        <input type="submit" class="btn btn-danger" value="Delete Thread" id="DeleteThreadButton" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@Styles.Render("~/Content/panels.css")
+@Scripts.Render("~/Scripts/discussion.js")
+@Scripts.Render("~/Scripts/jasny-bootstrap.min.js")
+@Scripts.Render("~/Scripts/jquery.twbsPagination.min.js")

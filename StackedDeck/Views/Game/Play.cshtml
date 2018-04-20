@@ -1,0 +1,38 @@
+﻿@model StackedDeck.ViewModels.PlayViewModel
+@{
+    ViewBag.Title = "Play";
+}
+<div class="container margin-top-sm">
+    <h2>Current Credits: <span class="text-success" id="CurrentCredits">@Model.Credits.ToString("C")</span></h2>
+    <input type="hidden" value="@Model.Credits" id="Credits"/>
+    <h3 class="hidden" id="CurrentBet">Current Bet: <span class="text-success" id="CurrentBetAmount"></span></h3>
+    <h1 id="result"></h1>
+    <div class="row play-container">
+        <div class="text-center">
+            <img class="col-sm-offset-1 col-sm-10 col-xs-12 col-md-offset-2 col-md-8 black-jack-table" src="~/imgs/BlackJackTable.png" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12" id="cards" style="margin-top: -25%;"></div>
+        @Html.ActionLink("Play Again", "Play", "Game", new { @class = "btn btn-success hidden", @id = "PlayAgain" })
+    </div>
+    <div class="col-xs-12 text-center" id="play">@Ajax.ActionLink("New Game", "NewGame", "Game", new AjaxOptions { OnComplete = "newgame" }, new { @class = "btn btn-success btn-lg", @id = "NewGameButton" })</div>
+    <div id="GameOptions" class="hidden">
+        <div class="form-horizontal">
+            @using (@Ajax.BeginForm("DealHand", "Game", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "cards", OnComplete = "clearform" }, new { @id = "BetForm" }))
+            {
+                <div class="form-group" id="BetInput">
+                    <label for="bet" class="control-label col-sm-offset-2 col-sm-2">Bet:</label>
+                    <div class="col-sm-4">
+                        @Html.TextBoxFor(m => m.Bet, new { @class = "form-control", @id = "bet-value", @min = 1, @max = Model.Credits, @type = "number" })
+                    </div>
+                    <div class="col-xs-12">
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-success" value="Deal" id="DealButton" />
+            }
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/Scripts/play.js")

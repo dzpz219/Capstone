@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<div class="site-wrapper home">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            <div class="inner cover">
+                <h1>Welcome to Stacked Deck</h1>
+                <p>Begin your free trial today and start winning!</p>
+                <p>
+                    @Html.ActionLink("Start Now", "Features", "Home", null, new { @class = "btn btn-lg btn-success" })
+                </p>
+            </div>
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Stacked Deck, by <a href="#">Danny Zhang</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Styles.Render("~/Content/welcome.css")

@@ -1,0 +1,27 @@
+﻿@model StackedDeck.ViewModels.AdminData
+
+@foreach (var r in Model.Reports)
+{
+    <div class="bs-callout bs-callout-danger padding-bottom-none">
+        <div class="well well-sm text-left">
+            <div class="media">
+                <div class="media-left padding-left-none">
+                    <div class="thumbnail margin-bottom-none">
+                        <img src="@r.Avatar" alt="@r.Username">
+                    </div>
+                </div>
+                <div class="media-body text-left">
+                    <div id="PostContent">@r.Content</div>
+                </div>
+            </div>
+            <div class="row margin-top-xs">
+                <div class="col-sm-2 text-center">@r.Username</div>
+                <div class="col-sm-10 text-right">@r.PostDate</div>
+            </div>
+        </div>
+        <div class="row margin-bottom-xs">
+            <div class="col-sm-12 text-right text-danger margin-bottom-xs">Reported by: @r.ReportBy, on @r.ReportDate</div>
+            <div class="col-sm-12 text-right"><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" data-id="@r.Id" data-title="Report">Delete Report</a></div>
+        </div>
+    </div>
+}

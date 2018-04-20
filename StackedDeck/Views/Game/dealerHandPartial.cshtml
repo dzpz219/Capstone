@@ -1,0 +1,6 @@
+﻿@model StackedDeck.ViewModels.CardViewModel
+<div>Hand: @ViewBag.DealerHand</div>
+@foreach (var Card in Model.DealerHand)
+{
+    <img class="card" src="/imgs/cards/@Card.Image" alt="@Card.Value" />
+}

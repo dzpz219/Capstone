@@ -1,0 +1,60 @@
+﻿@model StackedDeck.ViewModels.DiscussionViewModel
+<!--Load a list of posts in a thread-->
+
+<div class="panel with-nav-tabs panel-default text-black">
+    <div class="panel-heading">
+        <ul class="nav nav-tabs">
+            <li>
+                @Ajax.ActionLink("Threads", "ThreadsPartial", "Discussion", new AjaxOptions { UpdateTargetId = "DiscussionPartial", InsertionMode = InsertionMode.Replace, HttpMethod = "Get", OnSuccess = "pagination" })
+            </li>
+            <li class="active"><a href="#" data-toggle="tab">@ViewBag.Title</a></li>
+        </ul>
+    </div>
+    <div class="panel-body">
+        <div class="tab-content">
+            <div class="tab-pane fade in active">
+                <div id="PostsPartial">
+                    @foreach (var p in Model.Posts)
+                    {
+                        <div class="bs-callout bs-callout-info padding-bottom-none">
+                            <div class="well well-sm text-left">
+                                <div class="media">
+                                    <div class="media-left padding-left-none">
+                                        <div class="thumbnail margin-bottom-none">
+                                            <img src="@p.Avatar" alt="@p.Username">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="media-body text-left">
+                                        <div id="PostContent">@p.Content</div>
+                                    </div>
+                                </div>
+                                <div class="row margin-top-xs">
+                                    <div class="col-sm-2 text-center">@p.Username</div>
+                                    <div class="col-sm-10 text-right">@p.PostDate</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer margin-bottom-sm">
+        @using (Ajax.BeginForm("NewPost", "Discussion", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "PostsPartial", OnSuccess = "clearPost" }, new { @class = "form-horizontal text-right", @id = "NewPostForm" }))
+        {
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <textarea name="Content" class="form-control" style="width: 100%; resize: none" rows="6" id="NewPostContent"></textarea>
+                </div>
+            </div>
+            <input type="hidden" name="ThreadId" value="@ViewBag.ThreadId" />
+            @Ajax.ActionLink("Back", "ThreadsPartial", "Discussion", new AjaxOptions { UpdateTargetId = "DiscussionPartial", InsertionMode = InsertionMode.Replace, HttpMethod = "Get", OnSuccess = "pagination" }, new { @class = "btn btn-default"})
+            <input type="submit" class="btn btn-success pull-right" value="New Post" id="NewPostButton" />
+        }
+        @if (@ViewBag.Delete)
+        {
+            @Html.ActionLink("Delete Thread", "DeleteThread", new { ThreadId = @ViewBag.ThreadId }, new { @class = "btn btn-danger pull-left" })
+        }
+    </div>
+</div>

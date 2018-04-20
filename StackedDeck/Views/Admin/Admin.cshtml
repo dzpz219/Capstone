@@ -1,0 +1,286 @@
+﻿@model StackedDeck.ViewModels.AdminData
+@{
+    ViewBag.Title = "Admin";
+}
+
+<div class="container margin-top-sm">
+    <h2>Admin Management</h2>
+    <hr />
+    <div class="panel with-nav-tabs panel-default text-black">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs" id="AdminNav">
+                <li class="active"><a href="#users" data-toggle="tab" data-v="usersPartial" data-d="Users">User Search</a></li>
+                <li><a href="#ads" data-toggle="tab" data-v="adsPartial" data-d="Ads">Manage Ads</a></li>
+                <li><a href="#credits" data-toggle="tab" data-v="creditsPartial" data-d="Credits">Credit Requests</a></li>
+                <li><a href="#reports" data-toggle="tab" data-v="reportsPartial" data-d="Reports">Reported Users</a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="users">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <div class="col-xs-8">
+                            @using (Ajax.BeginForm("SearchUsers", "Admin", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "UserTable", OnSuccess = "removePagination" }, new { @class = "form-horizontal", role = "form", @id = "UserSearchForm" }))
+                            {
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="search" id="search" placeholder="Search for Users...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-xs-4">
+                            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#MessageModal" data-whatever=""><i class="fa fa-pencil fa-lg"></i></button>
+                        </div>
+                    </div>
+                    <div id="UserTable">
+                        <table class="table table-bordered table-hover text-left">
+                            <thead>
+                                <tr>
+                                    <th><i class="fa fa-user fa-lg"></i></th>
+                                    <th><i class="fa fa-envelope fa-lg"></i></th>
+                                    <th class="col-xs-1 text-right">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody data-link="row" class="rowlink">
+                                @foreach (var user in Model.Users)
+                                {
+                                    <tr>
+                                        <td>@user.UserName</td>
+                                        <td>@user.Email</td>
+                                        <td class="col-xs-1 text-right">
+                                            @if (!@user.LockoutEnabled)
+                                            {<i class="fa fa-check fa-lg text-success"></i>}
+                                            else
+                                            { <i class="fa fa-ban fa-lg text-danger"></i> }
+                                            <a href="#" data-toggle="modal" data-target="#UserInfoModal"
+                                               data-un="@user.UserName"
+                                               data-fn="@user.Firstname"
+                                               data-ln="@user.Lastname"
+                                               data-q="@user.RecoveryQuestion1"
+                                               data-a="@user.RecoveryAnswer1"
+                                               data-e="@user.Email"
+                                               data-ph="@user.Phone"
+                                               data-po="@user.Postal"
+                                               data-add="@user.Address"
+                                               data-c="@user.Country"
+                                               data-prov="@user.Province"
+                                               data-cr="@user.Credits.ToString("C")"
+                                               data-rd="@user.RegisterDate"></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav>
+                        <ul class="pagination margin-top-none margin-bottom-none" id="admin-pagination"></ul>
+                    </nav>
+                </div>
+                <div class="tab-pane fade" id="ads">
+                    <div class="progress hidden">
+                        <div class="progress-bar progress-bar-striped active hidden" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    </div>
+                    <div class="col-xs-4 text-left">
+                        <div id="adNameInput" class="hidden">
+                            Ad Name:
+                            <input type="text" name="adname" id="adInput" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <img class="col-xs-12 pull-right thumbnail hidden" id="imagePreview" src="" alt="" />
+                        <p class="col-xs-12 pull-right text-danger hidden" id="uploadMsg"></p>
+                        <div id="status"></div>
+                    </div>
+                    <div class="col-xs-4 margin-bottom-sm">
+                        <div class="btn-group pull-right">
+                            <span class="btn btn-default btn-file">
+                                Choose File <input type="file" id="uploadedFile" accept="image/*">
+                            </span>
+                            <input class="btn btn-primary" type="button" value="Upload Ad" id="uploadBtn" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12" id="adsPartial"></div>
+                </div>
+                <div class="tab-pane fade" id="credits">
+                    <div class="progress hidden" id="CreditsProgress">
+                        <div class="progress-bar progress-bar-striped active hidden" id="CreditsProgressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    </div>
+                    <div id="creditsPartial"></div>
+                    </div>
+                <div class="tab-pane fade" id="reports">
+                    <div class="progress hidden" id="ReportsProgress">
+                        <div class="progress-bar progress-bar-striped active hidden" id="ReportsProgressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    </div>
+                    <div id="reportsPartial"></div>
+                </div>
+                <div class="tab-pane fade" id="tab5default">Default 5</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="MessageModal" tabindex="-1" role="dialog" aria-labelledby="MessageModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content text-black">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <h4 class="modal-title" id="MessageModalLabel">New message</h4>
+                </div>
+                @using (Ajax.BeginForm("NewMessage", "Message", "", new AjaxOptions { HttpMethod = "Post", OnComplete = "location.reload()" }, new { @class = "", role = "form", @id = "NewMessageForm" }))
+                {
+                    <div class="modal-body text-left">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Recipient:</label>
+                            <input type="text" name="recipient" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Message:</label>
+                            <input class="form-control" name="message" id="message-text" style="padding-bottom: 100px; padding-top: 15px;" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" value="Send Message"/>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="UserInfoModal" tabindex="-1" role="dialog" aria-labelledby="UserInfoModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content text-black">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <h4 class="modal-title" id="UserInfoModalLabel"></h4>
+                </div>
+                <div class="modal-body text-left">
+                    @using (@Html.BeginForm("UpdateUser", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form", @id = "UpdateUserForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div id="UserInfoModalBody"></div>
+                        <input type="hidden" name="Username" id="un" value="" />
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Firstname, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control", @id = "fn" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Lastname, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control", @id = "ln" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.RecoveryQuestion1, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.RecoveryQuestion1, new { @class = "form-control", @id = "q" })
+                                @Html.ValidationMessageFor(m => m.RecoveryQuestion1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.RecoveryAnswer1, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.RecoveryAnswer1, new { @class = "form-control", @id = "a" })
+                                @Html.ValidationMessageFor(m => m.RecoveryAnswer1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "e" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Phone, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @id = "ph" })
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Postal, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Postal, new { @class = "form-control", @id = "po" })
+                                @Html.ValidationMessageFor(m => m.Postal, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Address, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @id = "add" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Country, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(m => m.Country, new SelectList(Model.CountryList, "Value", "Value"), "Select...", new { @class = "form-control", @id = "CountryDropDown" })
+                            </div>
+                        </div>
+                        <div class="form-group" id="ProvinceInput">
+                            @Html.LabelFor(m => m.Province, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(m => m.Province, new SelectList(Model.ProvinceList, "Value", "Value"), "Select...", new { @class = "form-control", @id = "ProvinceDropDown" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Credits, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                <div class="well well-sm margin-bottom-none" id="cr">@Model.Credits</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.RegisterDate, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                <div class="well well-sm" id="rd">@Model.RegisterDate</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                        
+                    }
+                </div>
+                <div class="modal-footer">
+                    @using (@Html.BeginForm("BanUser", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form", @id = "BanUserForm" }))
+                    {
+                        <input type="hidden" name="toggleUser" id="BanUser" value="" />
+                        <button class="btn btn-danger pull-left" type="submit">Change Ban Status</button>
+                    }
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="DeleteModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content text-black">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <h4 class="modal-title" id="DeleteModalLabel"></h4>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="AdForm">
+                        @using (@Ajax.BeginForm("DeleteAd", "Admin", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "adsPartial", OnSuccess = "hidemodal" }))
+                        {
+                            <input type="hidden" name="deleteFile" id="DeleteAd" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        }
+                    </div>
+                    <div id="ReportForm">
+                        @using (@Ajax.BeginForm("DeleteReport", "Admin", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "reportsPartial", OnSuccess = "hidemodal" }))
+                        {
+                            <input type="hidden" name="Id" id="DeleteReport" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Styles.Render("~/Content/panels.css")
+@Scripts.Render("~/Scripts/admin.js")
+@Scripts.Render("~/Scripts/jasny-bootstrap.min.js")
+@Scripts.Render("~/Scripts/jquery.twbsPagination.min.js")

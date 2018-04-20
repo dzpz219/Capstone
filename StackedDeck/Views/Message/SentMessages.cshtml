@@ -1,0 +1,21 @@
+﻿@model StackedDeck.ViewModels.MessageViewModel
+
+<table class="table table-bordered table-hover text-left">
+    <thead>
+        <tr>
+            <th class="col-xs-2">To</th>
+            <th>Subject</th>
+            <th class="col-xs-2 text-right">Date</th>
+        </tr>
+    </thead>
+    <tbody data-link="row" class="rowlink">
+        @foreach (var m in Model.Messages)
+        {
+            <tr>
+                <td class="col-xs-2">@m.Recipient</td>
+                <td>@m.Subject<a href="#MessageModal" data-toggle="modal" data-target="#MessageModal" data-sender="@m.Sender" data-subject="@m.Subject"></a></td>
+                <td class="col-xs-2 text-right">@m.MessageDate.ToString("MMMM dd, yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

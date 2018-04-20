@@ -1,0 +1,25 @@
+﻿@model StackedDeck.ViewModels.MessageViewModel
+
+@foreach (var m in Model.Messages)
+            {
+                if (@m.Sender == ViewBag.Sender)
+                {
+        <div class="row">
+            <div class="col-xs-5">
+                <h4 class="bubble-left margin-bottom-xs">@m.Sender: @m.Content</h4>
+                <h5 class="text-right">@m.MessageDate.ToShortDateString()</h5>
+                <h5 class="text-right">@m.MessageDate.ToShortTimeString()</h5>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-xs-offset-7 col-xs-5">
+                <h4 class="bubble-right margin-bottom-xs">@m.Content</h4>
+                <h5 class="text-right">@m.MessageDate.ToShortDateString()</h5>
+                <h5 class="text-right">@m.MessageDate.ToShortTimeString()</h5>
+            </div>
+        </div>
+    }
+}

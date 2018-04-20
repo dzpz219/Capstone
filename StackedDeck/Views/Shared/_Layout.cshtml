@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/css")
+    @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    <link href='https://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
+                    {
+                        @Html.AntiForgeryToken()
+                        <a href="javascript:document.getElementById('logoutForm').submit()" class="navbar-brand">Logout</a>
+                    }
+                }
+                else {
+                    @Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })
+                }              
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li><a href="/Admin/Admin"><i class="fa fa-users fa-lg"></i></a></li>
+                    }
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><a href="/Manage/Index"><i class="fa fa-user fa-lg"></i></a></li>
+                        <li><a href="/Discussion/Discussion"><i class="fa fa-list-alt fa-lg"></i></a></li>
+                        <li><a href="/Message/Messages"><i class="fa fa-comments fa-lg"></i></a></li>
+                        <li><a href="/Home/Credit"><i class="fa fa-usd fa-lg"></i></a></li>
+                        
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><a href="/Manage/Index">@User.Identity.Name</a></li>
+                        <li>@Html.ActionLink("Play", "Play", "Game")</li>
+                        <li>@Html.ActionLink("Home", "Home", "Home")</li>
+                        <li>@Html.ActionLink("How To Play", "HowToPlay", "Home")</li>
+                    }
+                    else {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    }
+                    <li>@Html.ActionLink("Features", "Features", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

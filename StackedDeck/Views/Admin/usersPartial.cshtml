@@ -1,0 +1,39 @@
+﻿@model StackedDeck.ViewModels.AdminData
+
+<table class="table table-bordered table-hover text-left">
+    <thead>
+        <tr>
+            <th><i class="fa fa-user fa-lg"></i></th>
+            <th><i class="fa fa-envelope fa-lg"></i></th>
+            <th class="col-xs-1 text-right">Status</th>
+        </tr>
+    </thead>
+    <tbody data-link="row" class="rowlink">
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td class="col-xs-1 text-right">
+                    @if (!@user.LockoutEnabled)
+                    {<i class="fa fa-check fa-lg text-success"></i>}
+                    else
+                    { <i class="fa fa-ban fa-lg text-danger"></i> }
+                    <a href="#" data-toggle="modal" data-target="#UserInfoModal"
+                       data-un="@user.UserName"
+                       data-fn="@user.Firstname"
+                       data-ln="@user.Lastname"
+                       data-q="@user.RecoveryQuestion1"
+                       data-a="@user.RecoveryAnswer1"
+                       data-e="@user.Email"
+                       data-ph="@user.Phone"
+                       data-po="@user.Postal"
+                       data-add="@user.Address"
+                       data-c="@user.Country"
+                       data-prov="@user.Province"
+                       data-rd="@user.RegisterDate"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

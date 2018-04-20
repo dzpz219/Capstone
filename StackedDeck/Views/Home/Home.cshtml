@@ -1,0 +1,36 @@
+﻿@model StackedDeck.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="margin-top-sm home-container">
+    <div id="wowslider-container1" class="margin-bottom-none">
+        <div class="ws_images">
+            <ul>
+                @foreach (var ad in Model.Ads)
+            {
+                    <li>
+                        <img src="@ad.Path" alt="@ad.Name" title="@ad.Name" />
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="ws_bullets">
+            <div>
+                @foreach (var ad in Model.Ads)
+                {
+                    <a href="#" title="@ad.Name"><span></span></a>
+                }
+            </div>
+        </div>
+        <div class="ws_shadow"></div>
+    </div>
+    <div>
+        <a href="/Home/Credit"><img src="~/imgs/Homepage Promo.jpg" class="col-sm-6 padding-left-none padding-right-none" /></a>
+        <a href="/Home/Credit"><img src="~/imgs/Homepage Promo.PNG" class="col-sm-6 padding-left-none padding-right-none" /></a>
+        <a href="/Game/Play"><img src="~/imgs/Time To Play.jpg" class="col-sm-12 padding-left-none padding-right-none" /></a>
+    </div>
+</div>
+@Styles.Render("~/Content/wowslider.css")
+@Scripts.Render("~/Scripts/wowslider.js")
+@Scripts.Render("~/Scripts/script.js")

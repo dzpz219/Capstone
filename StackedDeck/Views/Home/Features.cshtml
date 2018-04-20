@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Features";
+}
+
+<img src="~/imgs/sdf.jpg" width="100%" class="featureImage" style="margin-bottom: 100px">
+<div class="container feature-container">
+    <div class="row description">
+        <div class="col-xs-8 col-xs-offset-2">
+            <h1>We provide tutorials that introduces players to the basic concepts and strategies of traditional casino games. Video guides and hands-on experience are just a few examples of what we offer.</h1>
+        </div>
+    </div>
+    <div class="row" id="headings" style="margin-top: 100px">
+        <div class="col-xs-6 heading-left">
+            <img class="img-circle" src="~/imgs/Blackjackfeature.png" width="160" height="160">
+            <h3>Black Jack</h3>
+            <p class="lead">Come check out our easy step by step guide on the game!</p>
+            <p><a class="btn btn-success" href="/Home/HowToPlay" role="button">View Details &raquo;</a></p>
+        </div><!-- /.col-xs-6 -->
+        <div class="col-xs-6 heading-right">
+            <img class="img-circle" src="~/imgs/Blackjackdeal.jpg" width="160" height="160">
+            <h3>Play The Game</h3>
+            <p class="lead">Familiar yourself with the rules by practicing for free!</p>
+            <p><a class="btn btn-success" href="/Game/Play" role="button">View Details &raquo;</a></p>
+        </div><!-- /.col-xs-6 -->
+    </div><!-- /.row -->
+    <div class="row first-heading" style="text-align: left; margin-top: 100px">
+        <div class="col-xs-7 text-justify">
+            <p class="lead">“Previous to giving this service a try, my feeble mind had never even attempted to fathom the delicate intricacies of casino game strategy. 
+            This service made gambling as easy as 1-2-3. I was finally given the motivation to throw away all my money- I even lost my house, my husband, and my kids but it’s alright! 
+            Though I used to spend hours drinking at the bar on casino trips, unable to comprehend any of the happenings, I can now finally understand the tricks of the trade and have a great time. 
+            I firmly believe that if I continue to work hard and hone my skills through the video tutorials that I will amass great riches and bring my family back to a luxurious villa on the beachside. 
+            All in all, this service was accessible, easy to use, and life changing. I would recommend it to anyone.”</p>
+        </div>
+        <div class="col-xs-5">
+            <img class="featurette-image thumbnail img-responsive center-block" src="~/imgs/portraits/chrchan.png" alt="chrchan" width="40%">
+            <p class="text-center">-chrchan</p>
+        </div>
+    </div>
+    <div class="row second-heading" style="text-align: right; margin-top: 100px">
+        <div class="col-xs-5">
+            <img class="featurette-image thumbnail img-responsive center-block" src="~/imgs/portraits/futurezhao.jpg" alt="Generic placeholder image" width="70%">
+            <p class="text-center">-futurezhao</p>
+        </div>
+        <div class="col-xs-7 text-justify">
+            <p class="lead">"Stacked Deck was a really helpful resource for me in trying to learn and understand the game of black jack. It was so easy-to-use and intuitive, even though I did not understand a word of English. From a poor village in northern China, I was able to use my earnings to buy a potato. With the help of the video tutorials and practicing my skills using the black jack simulator, I was able to bet the potato for a bowl of starchy noodles. Now here I am, rich beyond my wildest dreams! This could be you if you try Stacked Deck today!"</p>
+        </div>
+    </div>
+    <div class="row third-heading" style="text-align: left; margin-top: 100px">
+        <div class="col-xs-7 text-justify">
+            <p class="lead">"Remember that movie 21 and counting cards? Well you won't be that good but this will surely bring you a bit closer to it."</p>
+        </div>
+        <div class="col-xs-5">
+            <img class="featurette-image thumbnail img-responsive center-block" src="~/imgs/portraits/captaintang.jpg" alt="Generic placeholder image" width="60%">
+            <p class="text-center">-captaintang</p>
+        </div>
+    </div>
+    @Html.ActionLink("Register Now", "Register", "Account", null, new { @class = "btn btn-success btn-lg" })
+    <footer style="margin-top: 100px">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Stacked Deck, by <span class="text-muted">Danny Zhang</span>.</p>
+    </footer>
+</div>
+@Styles.Render("~/Content/welcome.css")

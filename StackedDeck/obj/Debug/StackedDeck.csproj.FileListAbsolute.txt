@@ -1,0 +1,191 @@
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\ApplicationInsights.config
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\csc.exe
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\vbc.exe
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\VBCSCompiler.exe
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\StackedDeck.dll.config
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\StackedDeck.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\StackedDeck.pdb
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Antlr3.Runtime.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\EntityFramework.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\EntityFramework.SqlServer.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.Web.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Newtonsoft.Json.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Owin.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\SendGrid.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\SendGrid.SmtpApi.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\SendGridMail.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Net.Http.Formatting.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.Helpers.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.Mvc.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.Optimization.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.Razor.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.WebPages.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.WebPages.Razor.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\WebGrease.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.Web.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Newtonsoft.Json.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Net.Http.Formatting.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.Helpers.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.Mvc.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.Optimization.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.Razor.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.WebPages.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\System.Web.WebPages.Razor.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Antlr3.Runtime.pdb
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\EntityFramework.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\EntityFramework.SqlServer.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.csprojResolveAssemblyReference.cache
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations.Initial.resources
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160315.resources
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160326.resources
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160328.resources
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.csproj.GenerateResource.Cache
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.dll
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.pdb
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160329.resources
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160330.resources
+C:\Users\Danny\documents\visual studio 2015\Projects\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160406.resources
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\ApplicationInsights.config
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\csc.exe
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\vbc.exe
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\VBCSCompiler.exe
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\StackedDeck.dll.config
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\StackedDeck.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\StackedDeck.pdb
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Antlr3.Runtime.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\EntityFramework.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\EntityFramework.SqlServer.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.Web.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.ApplicationInsights.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Newtonsoft.Json.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Owin.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\SendGrid.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\SendGrid.SmtpApi.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\SendGridMail.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Net.Http.Formatting.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.Helpers.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.Mvc.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.Optimization.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.Razor.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.WebPages.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.WebPages.Razor.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\WebGrease.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.Web.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.ApplicationInsights.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Newtonsoft.Json.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Net.Http.Formatting.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.Helpers.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.Mvc.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.Optimization.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.Razor.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.WebPages.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\System.Web.WebPages.Razor.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Antlr3.Runtime.pdb
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\EntityFramework.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\EntityFramework.SqlServer.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.csprojResolveAssemblyReference.cache
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations.Initial.resources
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160315.resources
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160326.resources
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160328.resources
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160329.resources
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160330.resources
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.Migrations._20160406.resources
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.csproj.GenerateResource.Cache
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.csproj.CoreCompileInputs.cache
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.dll
+C:\Users\dzhang\Desktop\StackedDeck\StackedDeck\obj\Debug\StackedDeck.pdb

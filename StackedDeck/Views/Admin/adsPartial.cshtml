@@ -1,0 +1,13 @@
+﻿@model StackedDeck.ViewModels.AdminData
+@foreach (var ad in Model.Ads)
+{
+    <div class="col-xs-3">
+        <div class="thumbnail">
+            <img src="@ad.Path" alt="@ad.Name">
+            <div class="caption">
+                <h4>@ad.Name</h4>
+                <div><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" data-id="@ad.FullName" data-title="Ad">Delete Ad</a></div>
+            </div>
+        </div>
+    </div>
+}

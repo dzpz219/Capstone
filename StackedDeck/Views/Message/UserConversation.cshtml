@@ -1,0 +1,50 @@
+﻿@model StackedDeck.ViewModels.MessageViewModel
+
+<div class="panel-heading">
+    <ul class="nav nav-tabs">
+        <li id="Conversations"><a href="/Message/Messages">Conversations</a></li>
+        <li class="active" id="Conversations"><a href="#ConversationTab" data-toggle="tab">@ViewBag.Sender</a></li>
+    </ul>
+</div>
+<div class="panel-body">
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="ConversationTab">
+            @foreach (var m in Model.Messages)
+            {
+                if (@m.Sender == ViewBag.Sender)
+                {
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <h4 class="bubble-left margin-bottom-xs">@m.Sender: @m.Content</h4>
+                                <h5 class="text-right">@m.MessageDate.ToShortDateString()</h5>
+                                <h5 class="text-right">@m.MessageDate.ToShortTimeString()</h5>
+                            </div>
+                        </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-xs-offset-7 col-xs-5">
+                            <h4 class="bubble-right margin-bottom-xs">@m.Content</h4>
+                            <h5 class="text-right">@m.MessageDate.ToShortDateString()</h5>
+                            <h5 class="text-right">@m.MessageDate.ToShortTimeString()</h5>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<div class="panel-footer padding-bottom-sm">
+    @using (Ajax.BeginForm("NewMessage", "Message", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "ConversationTab", OnSuccess = "clearMessage" }, new { @class = "form-horizontal text-right" }))
+    {
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input name="message" class="form-control" style="padding-bottom: 100px; padding-top: 15px;" required="required" id="NewMessageInput"/>
+            </div>
+        </div>
+        <input type="hidden" name="recipient" id="recipient" value="@ViewBag.Sender" />
+        <input type="submit" class="btn btn-primary pull-right" value="Send" />
+    }
+</div>
+@Scripts.Render("~/Scripts/message-reload.js")
